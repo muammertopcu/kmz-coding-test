@@ -1,8 +1,8 @@
 import React, {ReactElement} from 'react';
-import {SafeAreaView} from 'react-native';
+import Router from './router/Router';
 
 function App(): ReactElement {
-  return <SafeAreaView />;
+  return <Router />;
 }
 
 export default App;
