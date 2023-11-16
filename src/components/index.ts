@@ -6,3 +6,4 @@ export {default as CategoryLeftMenu} from './CategoryLeftMenu';
 export {default as ProductItem} from './ProductItem';
 export {default as ProductListHeader} from './ProductListHeader';
 export {default as Slider} from './Slider';
+export {default as CartListItem} from './CartListItem';

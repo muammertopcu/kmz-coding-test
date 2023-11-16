@@ -4,8 +4,8 @@ import {useGetSubCategoriesQuery} from '../../redux/api/categoryApi';
 import type {AddToCartResponse, Category, Product} from '@types';
 import {ProductItem, ProductListHeader} from '@components';
 import {useGetProductsQuery} from '../../redux/api/productApi';
-import {useAddToCartMutation} from "../../redux/api/cartApi";
-import Toast from "react-native-toast-message";
+import {useAddToCartMutation} from '../../redux/api/cartApi';
+import Toast from 'react-native-toast-message';
 
 const Products = ({route}: any): ReactElement => {
   const [addToCart] = useAddToCartMutation();
@@ -56,15 +56,17 @@ const Products = ({route}: any): ReactElement => {
     refetchProduct();
   };
 
-  const addToCartHandler = (id: number):void => {
-    addToCart({productId: id, amount: 1, userId: 1}).then(({data}: AddToCartResponse|any) => {
-      Toast.show({
-        type: 'success',
-        text1: data.message,
-        position: 'bottom',
-      })
-    })
-  }
+  const addToCartHandler = (id: number): void => {
+    addToCart({productId: id, amount: 1, userId: 1}).then(
+      ({data}: AddToCartResponse | any) => {
+        Toast.show({
+          type: 'success',
+          text1: data.message,
+          position: 'bottom',
+        });
+      },
+    );
+  };
 
   if (isLoading) {
     return <Text>Loading...</Text>;
@@ -75,7 +77,12 @@ const Products = ({route}: any): ReactElement => {
       <FlatList
         keyExtractor={item => item.id.toString()}
         data={products}
-        renderItem={({item}) => <ProductItem product={item} onPress={() => addToCartHandler(item.id)} />}
+        renderItem={({item}) => (
+          <ProductItem
+            product={item}
+            onPress={() => addToCartHandler(item.id)}
+          />
+        )}
         numColumns={3}
         ListHeaderComponent={
           <ProductListHeader

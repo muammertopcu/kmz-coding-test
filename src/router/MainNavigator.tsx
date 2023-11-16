@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import {useDispatch} from 'react-redux';
 import {toggleMenu} from '../redux/slices/categorySlice';
 import HomeNavigator from './HomeNavigator';
+import {Cart} from '@screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,6 +36,15 @@ const MainNavigator = (): ReactElement => {
         options={{
           tabBarIcon: tabBarIcon('home'),
           headerLeft: headerLeftIcon('menu', openLeftMenu),
+          headerTitle: '',
+        }}
+      />
+
+      <Tab.Screen
+        name={'Cart'}
+        component={Cart}
+        options={{
+          tabBarIcon: tabBarIcon('shopping-cart'),
           headerTitle: '',
         }}
       />
