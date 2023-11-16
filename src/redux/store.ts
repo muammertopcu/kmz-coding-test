@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import {authSlice} from './slices';
+import {authSlice, categorySlice} from './slices';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {authApi} from './api/authApi';
 import {categoryApi} from './api/categoryApi';
@@ -25,6 +25,7 @@ const reducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [categoryApi.reducerPath]: categoryApi.reducer,
   authSlice,
+  categorySlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

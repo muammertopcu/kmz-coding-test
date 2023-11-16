@@ -7,15 +7,19 @@ interface ICategoryItemProps {
   category: Category;
   onPress: () => void;
   withImage?: boolean;
+  centered?: boolean;
 }
 
 const CategoryItem = ({
   category,
   withImage,
+  centered,
   onPress,
 }: ICategoryItemProps): ReactElement => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.container, centered && styles.centered]}>
       {withImage && (
         <Image
           source={{uri: 'https://via.placeholder.com/100'}}

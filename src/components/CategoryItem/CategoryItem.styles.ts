@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
   },
   image: {
     borderRadius: 5,
@@ -13,5 +12,8 @@ export default StyleSheet.create({
   },
   text: {
     marginVertical: 5,
+  },
+  centered: {
+    alignItems: 'center',
   },
 });

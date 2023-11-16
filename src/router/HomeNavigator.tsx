@@ -2,6 +2,8 @@ import React, {ReactElement} from 'react';
 import {Home} from '@screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Entypo';
+import {useDispatch} from 'react-redux';
+import {toggleMenu} from '../redux/slices/categorySlice';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,11 +18,15 @@ const tabBarIcon = (name: string) => {
   );
 };
 
-const headerLeftIcon = (name: string) => {
-  return () => <Icon name={name} size={30} />;
+const headerLeftIcon = (name: string, onPress: () => void) => {
+  return () => <Icon name={name} size={30} onPress={onPress} />;
 };
 
 const HomeNavigator = (): ReactElement => {
+  const dispatch = useDispatch();
+
+  const openLeftMenu = () => dispatch(toggleMenu());
+
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -28,7 +34,7 @@ const HomeNavigator = (): ReactElement => {
         component={Home}
         options={{
           tabBarIcon: tabBarIcon('home'),
-          headerLeft: headerLeftIcon('menu'),
+          headerLeft: headerLeftIcon('menu', openLeftMenu),
           headerTitle: '',
         }}
       />
