@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {authApi} from './api/authApi';
 import {categoryApi} from './api/categoryApi';
 import {productApi} from './api/productApi';
+import {cartApi} from './api/cartApi';
 
 const persistConfig = {
   key: 'root',
@@ -26,6 +27,7 @@ const reducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [categoryApi.reducerPath]: categoryApi.reducer,
   [productApi.reducerPath]: productApi.reducer,
+  [cartApi.reducerPath]: cartApi.reducer,
   authSlice,
   categorySlice,
 });
@@ -43,6 +45,7 @@ const store = configureStore({
       authApi.middleware,
       categoryApi.middleware,
       productApi.middleware,
+      cartApi.middleware,
     ]),
 });
 

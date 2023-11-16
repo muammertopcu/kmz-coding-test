@@ -1,21 +1,22 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, TouchableOpacity} from 'react-native';
 import {Product} from '@types';
 import styles from './ProductItem.styles';
 
 interface Props {
   product: Product;
+  onPress?: () => void;
 }
 
-const ProductItem = ({product}: Props) => {
+const ProductItem = ({product, onPress}: Props) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image
         source={{uri: product.productImages[0].imagePath}}
         style={styles.image}
       />
       <Text>{product.stockName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
