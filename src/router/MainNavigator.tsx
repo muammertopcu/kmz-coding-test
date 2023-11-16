@@ -29,7 +29,10 @@ const MainNavigator = (): ReactElement => {
   const openLeftMenu = () => dispatch(toggleMenu());
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#000',
+      }}>
       <Tab.Screen
         name={'Home'}
         component={HomeNavigator}

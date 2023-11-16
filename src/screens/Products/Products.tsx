@@ -2,7 +2,7 @@ import React, {ReactElement, useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {useGetSubCategoriesQuery} from '../../redux/api/categoryApi';
 import type {AddToCartResponse, Category, Product} from '@types';
-import {ProductItem, ProductListHeader} from '@components';
+import {CategoryLeftMenu, ProductItem, ProductListHeader} from '@components';
 import {useGetProductsQuery} from '../../redux/api/productApi';
 import {useAddToCartMutation} from '../../redux/api/cartApi';
 import Toast from 'react-native-toast-message';
@@ -106,6 +106,8 @@ const Products = ({route}: any): ReactElement => {
           isFetching ? <ActivityIndicator size={24} /> : null
         }
       />
+
+      <CategoryLeftMenu categories={categories} />
     </View>
   );
 };

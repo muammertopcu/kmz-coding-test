@@ -13,18 +13,16 @@ const Cart = () => {
   return (
     <FlatList
       data={data?.data.detail}
-      renderItem={({item}) => <CartListItem item={item} /> }
+      renderItem={({item}) => <CartListItem item={item} />}
       keyExtractor={item => item.id.toString()}
       refreshing={isFetching}
       onRefresh={() => refetch()}
-      ListFooterComponent={() => {
-        return (
-          <View>
-            <Text>Total: {data?.data.basket.totalPrice} TL</Text>
-            <Button text={'Done'} onPress={() => null} />
-          </View>
-        );
-      }}
+      ListFooterComponent={
+        <View>
+          <Text>Total: {data?.data.basket.totalPrice} TL</Text>
+          <Button text={'Done'} onPress={() => null} />
+        </View>
+      }
     />
   );
 };
