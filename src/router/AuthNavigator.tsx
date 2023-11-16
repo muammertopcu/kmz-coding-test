@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 const AuthNavigator = (): ReactElement => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
