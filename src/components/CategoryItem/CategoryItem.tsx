@@ -8,6 +8,7 @@ interface ICategoryItemProps {
   onPress: () => void;
   withImage?: boolean;
   centered?: boolean;
+  active?: boolean;
 }
 
 const CategoryItem = ({
@@ -15,11 +16,16 @@ const CategoryItem = ({
   withImage,
   centered,
   onPress,
+  active,
 }: ICategoryItemProps): ReactElement => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.container, centered && styles.centered]}>
+      style={[
+        styles.container,
+        centered && styles.centered,
+        active && styles.active,
+      ]}>
       {withImage && (
         <Image
           source={{uri: 'https://via.placeholder.com/100'}}

@@ -3,14 +3,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {RootState} from '../redux/store';
 import AuthNavigator from './AuthNavigator';
-import HomeNavigator from './HomeNavigator';
+import MainNavigator from './MainNavigator';
 
 function Router(): ReactElement {
   const {token} = useSelector((state: RootState) => state.authSlice);
 
   return (
     <NavigationContainer>
-      {token ? <HomeNavigator /> : <AuthNavigator />}
+      {token ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }

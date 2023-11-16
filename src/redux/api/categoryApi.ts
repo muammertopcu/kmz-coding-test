@@ -24,7 +24,15 @@ export const categoryApi = createApi({
         },
       }),
     }),
+    getSubCategories: builder.query<GetCategory, number>({
+      query: id => ({
+        url: `/product/categories?parentId=${id}`,
+        headers: {
+          GUID: '24BE-DB0E-D75E-4060',
+        },
+      }),
+    }),
   }),
 });
 
-export const {useGetCategoriesQuery} = categoryApi;
+export const {useGetCategoriesQuery, useGetSubCategoriesQuery} = categoryApi;

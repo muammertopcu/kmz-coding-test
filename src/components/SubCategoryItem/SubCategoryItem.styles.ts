@@ -3,21 +3,17 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-  },
-  image: {
-    borderRadius: 5,
-    margin: 10,
-    width: 100,
-    height: 100,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    marginHorizontal: 5,
+    marginVertical: 10,
+    borderRadius: 50,
+    backgroundColor: '#fff',
   },
   text: {
-    marginVertical: 5,
-  },
-  centered: {
-    alignItems: 'center',
+    color: '#000',
   },
   active: {
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    borderRadius: 5,
   },
 });

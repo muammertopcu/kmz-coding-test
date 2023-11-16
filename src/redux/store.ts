@@ -13,6 +13,7 @@ import {authSlice, categorySlice} from './slices';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {authApi} from './api/authApi';
 import {categoryApi} from './api/categoryApi';
+import {productApi} from './api/productApi';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,7 @@ const persistConfig = {
 const reducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [categoryApi.reducerPath]: categoryApi.reducer,
+  [productApi.reducerPath]: productApi.reducer,
   authSlice,
   categorySlice,
 });
@@ -37,7 +39,11 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat([authApi.middleware, categoryApi.middleware]),
+    }).concat([
+      authApi.middleware,
+      categoryApi.middleware,
+      productApi.middleware,
+    ]),
 });
 
 let persistor = persistStore(store);
