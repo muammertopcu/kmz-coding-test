@@ -6,9 +6,9 @@ import {setToken} from '../../redux/slices/authSlice';
 import {useLoginMutation} from '../../redux/api/authApi';
 import Toast from 'react-native-toast-message';
 import {LoginMutationResponse, LoginMutationVariables} from '@types';
-import styles from './LoginScreen.styles';
+import styles from './Login.styles';
 
-const LoginScreen = (): ReactElement => {
+const Login = (): ReactElement => {
   const [loginMutation] = useLoginMutation();
   const dispatch = useDispatch();
 
@@ -68,4 +68,4 @@ const LoginScreen = (): ReactElement => {
   );
 };
 
-export default LoginScreen;
+export default Login;

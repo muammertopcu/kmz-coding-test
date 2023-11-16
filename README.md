@@ -7,10 +7,10 @@ This project is an example of a mobile application developed using React Native 
 ### Project Tasks
 
 1. **User Login:**
-   - In `src/screens/LoginScreen.tsx`, user login should be implemented using the API.
+   - In `src/screens/Login`, user login should be implemented using the API.
 
 2. **Main Screen and Category List:**
-   - In `src/screens/HomeScreen.tsx`, a category list should be created on the main screen.
+   - In `src/screens/Home`, a category list should be created on the main screen.
 
 3. **Listing Subcategories:**
    - In `src/screens/HomeScreen.tsx`, subcategories under the selected main category should be listed.

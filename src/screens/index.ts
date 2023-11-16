@@ -1,1 +1,2 @@
-export {default as LoginScreen} from './LoginScreen';
+export {default as Login} from './Login';
+export {default as Home} from './Home';

@@ -1,19 +1,16 @@
 import React, {ReactElement} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {LoginScreen} from '@screens';
-
-const Stack = createNativeStackNavigator();
+import {useSelector} from 'react-redux';
+import {RootState} from '../redux/store';
+import AuthNavigator from './AuthNavigator';
+import HomeNavigator from './HomeNavigator';
 
 function Router(): ReactElement {
+  const {token} = useSelector((state: RootState) => state.authSlice);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name={'Login'} component={LoginScreen} />
-      </Stack.Navigator>
+      {token ? <HomeNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }
